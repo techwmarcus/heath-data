@@ -22,7 +22,7 @@ jobs:
           sudo apt-get install -y python3-pip
 
       - name: aws configure
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::716563790644:role/git-ops
           aws-region: us-west-1
