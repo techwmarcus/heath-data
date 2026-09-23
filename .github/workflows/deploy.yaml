@@ -26,19 +26,20 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::716563790644:role/git-ops
           aws-region: us-west-1
+          
 
       - name: Setup TFLint
         uses: terraform-linters/setup-tflint@v4
         with:
-          tflint_version: v0.50.0  # Use the latest stable version
+          tflint_version: v0.50.0  
 
-      # 2. Initialize TFLint (downloads plugins like AWS, Azure, GCP if configured)
+  
       - name: Initialize TFLint
         run: tflint --init
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed if downloading plugins
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
 
-      # 3. Run the Lint check
+  
       - name: Run TFLint
         id: lint
         run: tflint -f compact
