@@ -1,0 +1,50 @@
+[
+  {
+    "resourceType": "Observation",
+    "id": "observation-001",
+    "status": "final",
+    "subject": {
+      "reference": "Patient/patient-001"
+    },
+    "code": {
+      "text": "Body temperature"
+    },
+    "valueQuantity": {
+      "value": 38.4,
+      "unit": "C"
+    },
+    "effectiveDateTime": "2026-08-01T11:00:00Z"
+  },
+  {
+    "resourceType": "Observation",
+    "id": "observation-002",
+    "status": "final",
+    "subject": {
+      "reference": "Patient/patient-002"
+    },
+    "code": {
+      "text": "Body temperature"
+    },
+    "valueQuantity": {
+      "value": 37.1,
+      "unit": "C"
+    },
+    "effectiveDateTime": "2026-08-10T09:00:00Z"
+  },
+  {
+    "resourceType": "Observation",
+    "id": "observation-003",
+    "status": "final",
+    "subject": {
+      "reference": "Patient/patient-003"
+    },
+    "code": {
+      "text": "Body temperature"
+    },
+    "valueQuantity": {
+      "value": 39.0,
+      "unit": "C"
+    },
+    "effectiveDateTime": "2026-08-15T13:00:00Z"
+  }
+]

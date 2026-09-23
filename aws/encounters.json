@@ -1,0 +1,59 @@
+[
+  {
+    "resourceType": "Encounter",
+    "id": "encounter-001",
+    "status": "finished",
+    "class": {
+      "code": "IMP",
+      "display": "inpatient encounter"
+    },
+    "subject": {
+      "reference": "Patient/patient-001"
+    },
+    "period": {
+      "start": "2026-08-01T10:30:00Z",
+      "end": "2026-08-06T14:00:00Z"
+    },
+    "reason": {
+      "text": "Pneumonia"
+    }
+  },
+  {
+    "resourceType": "Encounter",
+    "id": "encounter-002",
+    "status": "finished",
+    "class": {
+      "code": "IMP",
+      "display": "inpatient encounter"
+    },
+    "subject": {
+      "reference": "Patient/patient-002"
+    },
+    "period": {
+      "start": "2026-08-10T08:00:00Z",
+      "end": "2026-08-12T16:00:00Z"
+    },
+    "reason": {
+      "text": "Asthma"
+    }
+  },
+  {
+    "resourceType": "Encounter",
+    "id": "encounter-003",
+    "status": "finished",
+    "class": {
+      "code": "IMP",
+      "display": "inpatient encounter"
+    },
+    "subject": {
+      "reference": "Patient/patient-003"
+    },
+    "period": {
+      "start": "2026-08-15T12:00:00Z",
+      "end": "2026-08-22T10:00:00Z"
+    },
+    "reason": {
+      "text": "Pneumonia"
+    }
+  }
+]

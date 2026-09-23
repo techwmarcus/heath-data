@@ -1,0 +1,56 @@
+[
+  {
+    "resourceType": "Patient",
+    "id": "patient-001",
+    "identifier": [
+      {
+        "system": "https://example-health.org/mrn",
+        "value": "MRN100001"
+      }
+    ],
+    "name": [
+      {
+        "family": "Johnson",
+        "given": ["Michael"]
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1985-04-12"
+  },
+  {
+    "resourceType": "Patient",
+    "id": "patient-002",
+    "identifier": [
+      {
+        "system": "https://example-health.org/mrn",
+        "value": "MRN100002"
+      }
+    ],
+    "name": [
+      {
+        "family": "Williams",
+        "given": ["Sarah"]
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1992-08-21"
+  },
+  {
+    "resourceType": "Patient",
+    "id": "patient-003",
+    "identifier": [
+      {
+        "system": "https://example-health.org/mrn",
+        "value": "MRN100003"
+      }
+    ],
+    "name": [
+      {
+        "family": "Brown",
+        "given": ["David"]
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1976-01-30"
+  }
+]
