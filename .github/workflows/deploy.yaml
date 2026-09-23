@@ -25,9 +25,6 @@ jobs:
           role-to-assume: arn:aws:iam::716563790644:role/git-ops
           aws-region: us-west-1
 
-      - name: terraform configure
-        uses: hashicorp/setup-terraform@v3
-
       - name: Setup TFLint
         uses: terraform-linters/setup-tflint@v4
         with:
@@ -43,7 +40,10 @@ jobs:
       - name: Run TFLint
         id: lint
         run: tflint -f compact
-        
+
+      - name: terraform configure
+        uses: hashicorp/setup-terraform@v3
+
       - name: terraform init
         id: apply
         run: |
