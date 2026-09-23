@@ -1,0 +1,68 @@
+name: ETL Deployment
+on:
+  push:
+    branches:
+      - main
+  
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: aws configure
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::716563790644:role/git-ops
+          aws-region: us-west-1
+
+      - name: terraform configure
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Setup TFLint
+        uses: terraform-linters/setup-tflint@v4
+        with:
+          tflint_version: v0.50.0  # Use the latest stable version
+
+      # 2. Initialize TFLint (downloads plugins like AWS, Azure, GCP if configured)
+      - name: Initialize TFLint
+        run: tflint --init
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed if downloading plugins
+
+      # 3. Run the Lint check
+      - name: Run TFLint
+        id: lint
+        run: tflint -f compact
+        
+      - name: terraform init
+        id: apply
+        run: |
+          terraform init
+          terraform validate
+          terraform apply --auto-approve 
+        working-directory: ./aws
+
+      - name: logs
+        if: failure()
+        run: |
+          echo "Terraform apply failed. Please check the logs for details."
+          echo "Fetching logs..."
+          terraform show -json > terraform_logs.json
+          cat terraform_logs.json
+
+      - name: Notify on success
+        if: steps.apply.outcome == 'success'
+        run: |
+          echo "Terraform apply succeeded. Deployment completed successfully."
